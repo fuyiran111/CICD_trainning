@@ -42,4 +42,6 @@ jobs:
     steps:
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_KEY }} ubuntu@16.162.187.207 "docker pull fuyiran111/firstpage:latest && docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.AWS_KEY }} ubuntu@16.162.187.207 "
+          docker ps -aq | xargs -r docker rm && 
+          docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
