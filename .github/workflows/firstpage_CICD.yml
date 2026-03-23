@@ -20,4 +20,4 @@ jobs:
           pip install -r requirements.txt
       - name: Run firstpage tests
         run: |
-          pytest tests/first_page_test.py
+          pytest first_page_test.py
