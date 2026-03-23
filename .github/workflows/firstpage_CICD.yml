@@ -43,10 +43,10 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.AWS_KEY }}" > ~/.ssh/aws_key.pem
-          chmod 600 ~/.ssh/aws_key.pem
+          echo "${{ secrets.AWS_KEY }}" > ~/.ssh/CICD-RSA.pem
+          chmod 600 ~/.ssh/CICD-RSA.pem
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws_key.pem ubuntu@16.162.187.207 "
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@16.162.187.207 "
           docker ps -aq | xargs -r docker rm && 
           docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
