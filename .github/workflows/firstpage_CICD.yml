@@ -51,5 +51,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@18.166.249.157 "
           sudo apt-get update && 
           sudo apt-get install -y docker.io &&
-          docker ps -aq | xargs -r docker rm -f && 
-          docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
+          sudo docker ps -aq | xargs -r docker rm -f && 
+          sudo docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
