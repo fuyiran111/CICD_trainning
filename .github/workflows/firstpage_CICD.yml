@@ -47,6 +47,6 @@ jobs:
           chmod 600 ~/.ssh/CICD-RSA.pem
       - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@16.162.187.207 "
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@18.166.249.157 "
           docker ps -aq | xargs -r docker rm && 
           docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
