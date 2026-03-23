@@ -42,11 +42,11 @@ jobs:
     steps:
       - name: Set up SSH
         run: |
-          mkdir -p ~/.ssh && touch ~/.ssh/CICD-RSA.pem
+          mkdir -p ~/.ssh
           echo "${{ secrets.AWS_KEY }}" > ~/.ssh/CICD-RSA.pem
           chmod 600 ~/.ssh/CICD-RSA.pem
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@18.166.249.157 "
-          docker ps -aq | xargs -r docker rm && 
+          docker ps -aq | xargs -r docker rm -f && 
           docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
