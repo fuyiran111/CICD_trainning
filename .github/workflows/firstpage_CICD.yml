@@ -54,4 +54,4 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/CICD-RSA.pem ubuntu@18.166.249.157 "
           sudo docker ps -aq | xargs -r sudo docker rm -f && 
-          sudo docker run -d -p 8080:8080 fuyiran111/firstpage:latest"
+          sudo docker run -d -p 8080:8080 fuyiran111/$DOCKER_IMAGE:$DOCKER_TAG"
